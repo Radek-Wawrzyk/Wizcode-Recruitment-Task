@@ -1,7 +1,8 @@
-type WithLabelAndAttributes<T = unknown, A = unknown> = {
-  label?: string;
-  attributes?: A;
-} & (T extends null ? {} : T);
+type WithLabelAndAttributes<L = string, A = unknown, T = unknown> = (L extends null
+  ? {}
+  : { label: string }) &
+  (A extends object ? { attributes?: A } : {}) &
+  (T extends null ? {} : T);
 
 interface ImageAttributes {
   height: string;
@@ -43,21 +44,27 @@ interface ContentTypeAttributes {
 }
 
 interface Album {
-  'im:name': WithLabelAndAttributes;
-  'im:image': WithLabelAndAttributes<null, ImageAttributes>[];
-  'im:itemCount': WithLabelAndAttributes;
-  'im:price': WithLabelAndAttributes<null, PriceAttributes>;
+  'im:name': WithLabelAndAttributes<string, unknown>;
+  'im:image': WithLabelAndAttributes<string, ImageAttributes>[];
+  'im:itemCount': WithLabelAndAttributes<string, unknown>;
+  'im:price': WithLabelAndAttributes<string, PriceAttributes>;
   'im:contentType': {
     'im:contentType': WithLabelAndAttributes<null, ContentTypeAttributes>;
     attributes: WithLabelAndAttributes<null, ContentTypeAttributes>;
   };
-  'im:artist': WithLabelAndAttributes<null, ArtistAttributes>;
-  'im:releaseDate': WithLabelAndAttributes<null, ReleaseDateAttributes>;
-  rights: WithLabelAndAttributes;
-  title: WithLabelAndAttributes;
-  link: WithLabelAndAttributes<null, LinkAttributes>;
-  id: WithLabelAndAttributes<null, IdAttributes>;
-  category: WithLabelAndAttributes<null, CategoryAttributes>;
+  'im:artist': WithLabelAndAttributes<string, ArtistAttributes>;
+  'im:releaseDate': WithLabelAndAttributes<string, ReleaseDateAttributes>;
+  rights: WithLabelAndAttributes<string, unknown>;
+  title: WithLabelAndAttributes<string, unknown>;
+  link: WithLabelAndAttributes<string, LinkAttributes>;
+  id: WithLabelAndAttributes<string, IdAttributes>;
+  category: WithLabelAndAttributes<string, CategoryAttributes>;
+}
+
+interface GetTopAlbumsResponseDto {
+  feed: {
+    entry: Album[];
+  };
 }
 
 interface GetTopAlbumsResponseDto {

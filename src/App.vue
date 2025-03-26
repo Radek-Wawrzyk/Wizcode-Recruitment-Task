@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import { albumsService } from '@/api/services/albums';
-import { onMounted, ref } from 'vue';
-import type { Album } from '@/types/Album.type';
+import { useTopAlbums } from '@/composables/useTopAlbums';
 
-const albums = ref<Album[]>([]);
-
-onMounted(async () => {
-  const { feed } = await albumsService.getTopAlbums();
-  albums.value = feed.entry;
-});
+const { topAlbums, isLoading, error } = useTopAlbums();
 </script>
 
 <template>
   <main>
-    <ul>
-      <li v-for="album in albums" :key="album.id.attributes['im:id']">
-        <h2>{{ album.title.label }}</h2>
+    <h1>Top Albums</h1>
+    <ul v-if="!isLoading && topAlbums">
+      <li v-for="album in topAlbums" :key="album.id?.attributes?.['im:id']">
+        <h2>{{ album.name }}</h2>
       </li>
     </ul>
+    <div v-else-if="isLoading">Loading...</div>
+    <div v-else-if="error">Error: {{ error }}</div>
   </main>
 </template>
