@@ -14,7 +14,7 @@ const routes = [
   {
     path: ROUTES.FAVORITES.path,
     name: ROUTES.FAVORITES.name,
-    component: () => import('@/pages/FavoritesAlbumsPage/FavoritesAlbumsPage.vue'),
+    component: () => import('@/pages/FavoriteAlbumsPage/FavoriteAlbumsPage.vue'),
   },
 ];
 
