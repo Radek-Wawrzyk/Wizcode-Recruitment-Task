@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+import { useElementOverflow } from '@/composables/useElementOverflow';
+
 import dayjs from 'dayjs';
 
 const props = defineProps<{
@@ -10,6 +12,9 @@ const props = defineProps<{
 }>();
 
 const albumReleaseYear = computed(() => dayjs(props.releaseDate).year());
+const titleRef = ref<HTMLElement>();
+
+const { isXOverflowing } = useElementOverflow(titleRef);
 </script>
 
 <template>
@@ -19,7 +24,14 @@ const albumReleaseYear = computed(() => dayjs(props.releaseDate).year());
     </div>
 
     <div class="album-tile__content">
-      <h3 class="album-tile__title">{{ name }}</h3>
+      <h3
+        ref="titleRef"
+        v-tippy="{ content: isXOverflowing ? name : null }"
+        class="album-tile__title"
+      >
+        {{ name }}
+      </h3>
+
       <p class="album-tile__artist">{{ artist }}</p>
       <p class="album-tile__release-year">{{ albumReleaseYear }}</p>
     </div>

@@ -1,0 +1,13 @@
+@import 'tippy.js/animations/shift-away.css';
+
+.tippy-box[data-theme~='wizcode'] {
+  background-color: var(--background-color-inverse);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-small);
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-medium);
+
+  .tippy-content {
+    color: var(--text-color-inverse);
+  }
+}

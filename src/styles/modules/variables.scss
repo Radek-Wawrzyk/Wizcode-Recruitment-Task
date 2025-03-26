@@ -1,13 +1,26 @@
 :root {
   --color-primary: #3856dd;
+
   --text-color: #242424;
+  --text-color-inverse: #FFFFFF;
+
+  --background-color: #FFFFFF;
+  --background-color-inverse: #242424;
+  --background-color-accent: #f6f6f6;
+
   --font-family: 'Inter', sans-serif;
 
   --font-size: 16px;
   --font-size-small: 14px;
+  --font-size-xsmall: 12px;
   --font-size-medium: 18px;
   --font-size-large: 24px;
   --font-size-xlarge: 32px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
 
   --spacing-extra-small: 4px;
   --spacing-small: 8px;
