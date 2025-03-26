@@ -1,0 +1,14 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 0.9rem;
+  }
+}
