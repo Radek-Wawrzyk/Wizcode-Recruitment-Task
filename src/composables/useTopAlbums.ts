@@ -2,7 +2,7 @@ import { albumsService } from '@/api/services/albums';
 import { useQuery } from '@tanstack/vue-query';
 import { QUERY_KEYS } from '@/constants/Queries';
 import { computed } from 'vue';
-import type { Album } from '@/types/Album.type';
+import type { RawAlbum } from '@/types/Album.type';
 
 const useTopAlbums = () => {
   const { data, isLoading, error } = useQuery({
@@ -10,22 +10,22 @@ const useTopAlbums = () => {
     queryFn: () => albumsService.getTopAlbums(),
   });
 
-  const mappedTopAlbums = (albums: Album[]) => {
+  const mappedTopAlbums = (albums: RawAlbum[]) => {
     return albums.map((album) => ({
-      id: album.id.attributes?.['im:id'],
+      id: album.id.attributes['im:id'],
       name: album.title.label,
-      url: album.link.attributes?.href,
+      url: album.link.attributes.href,
       image: album['im:image'][2].label,
       artistName: album['im:artist'].label,
       price: {
         amount: album['im:price'].label,
-        currency: album['im:price'].attributes?.currency,
+        currency: album['im:price'].attributes.currency,
       },
       tracksNumber: album['im:itemCount'].label,
-      releaseDate: album['im:releaseDate'].label,
+      releaseDate: new Date(album['im:releaseDate'].label),
       category: {
-        id: album.category.attributes?.['im:id'],
-        name: album.category.attributes?.label,
+        id: album.category.attributes['im:id'],
+        name: album.category.attributes.label,
       },
     }));
   };

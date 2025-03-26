@@ -8,7 +8,7 @@ const { topAlbums, isLoading, error } = useTopAlbums();
   <main>
     <h1>Top Albums</h1>
     <ul v-if="!isLoading && topAlbums">
-      <li v-for="album in topAlbums" :key="album.id?.attributes?.['im:id']">
+      <li v-for="album in topAlbums" :key="album.id">
         <h2>{{ album.name }}</h2>
       </li>
     </ul>

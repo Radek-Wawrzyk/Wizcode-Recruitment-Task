@@ -1,76 +1,59 @@
-type WithLabelAndAttributes<L = string, A = unknown, T = unknown> = (L extends null
-  ? {}
-  : { label: string }) &
-  (A extends object ? { attributes?: A } : {}) &
-  (T extends null ? {} : T);
+type WithLabelAndAttributes<L = string, A = null> = (L extends null ? {} : { label: string }) &
+  (A extends null ? {} : { attributes: A });
 
-interface ImageAttributes {
-  height: string;
-}
-
-interface IdAttributes {
-  'im:id': string;
-}
-
-interface LinkAttributes {
-  rel: string;
-  type: string;
-  href: string;
-}
-
-interface ArtistAttributes {
-  href: string;
-}
-
-interface CategoryAttributes {
-  'im:id': string;
-  term: string;
-  scheme: string;
-  label: string;
-}
-
-interface PriceAttributes {
-  amount: string;
-  currency: string;
-}
-
-interface ReleaseDateAttributes {
-  label: string;
-}
-
-interface ContentTypeAttributes {
-  term: string;
-  label: string;
+interface RawAlbum {
+  'im:name': WithLabelAndAttributes<string>;
+  'im:image': WithLabelAndAttributes<string, { height: string }>[];
+  'im:itemCount': WithLabelAndAttributes<string>;
+  'im:price': WithLabelAndAttributes<string, { amount: string; currency: string }>;
+  'im:contentType': {
+    'im:contentType': WithLabelAndAttributes<null, { term: string; label: string }>;
+    attributes: WithLabelAndAttributes<null, { term: string; label: string }>;
+  };
+  'im:artist': WithLabelAndAttributes<string, { href: string }>;
+  'im:releaseDate': WithLabelAndAttributes<string, { label: string }>;
+  rights: WithLabelAndAttributes<string>;
+  title: WithLabelAndAttributes<string>;
+  link: WithLabelAndAttributes<string, { rel: string; type: string; href: string }>;
+  id: WithLabelAndAttributes<string, { 'im:id': string }>;
+  category: WithLabelAndAttributes<
+    string,
+    { 'im:id': string; term: string; scheme: string; label: string }
+  >;
 }
 
 interface Album {
-  'im:name': WithLabelAndAttributes<string, unknown>;
-  'im:image': WithLabelAndAttributes<string, ImageAttributes>[];
-  'im:itemCount': WithLabelAndAttributes<string, unknown>;
-  'im:price': WithLabelAndAttributes<string, PriceAttributes>;
-  'im:contentType': {
-    'im:contentType': WithLabelAndAttributes<null, ContentTypeAttributes>;
-    attributes: WithLabelAndAttributes<null, ContentTypeAttributes>;
+  id: string;
+  name: string;
+  url: string;
+  image: string;
+  artistName: string;
+  price: {
+    amount: string;
+    currency: string;
   };
-  'im:artist': WithLabelAndAttributes<string, ArtistAttributes>;
-  'im:releaseDate': WithLabelAndAttributes<string, ReleaseDateAttributes>;
-  rights: WithLabelAndAttributes<string, unknown>;
-  title: WithLabelAndAttributes<string, unknown>;
-  link: WithLabelAndAttributes<string, LinkAttributes>;
-  id: WithLabelAndAttributes<string, IdAttributes>;
-  category: WithLabelAndAttributes<string, CategoryAttributes>;
-}
-
-interface GetTopAlbumsResponseDto {
-  feed: {
-    entry: Album[];
+  tracksNumber: string;
+  releaseDate: Date;
+  category: {
+    id: string;
+    name: string;
   };
 }
 
 interface GetTopAlbumsResponseDto {
   feed: {
-    entry: Album[];
+    entry: RawAlbum[];
   };
+  author: {
+    name: WithLabelAndAttributes<string>;
+    uri: WithLabelAndAttributes<string>;
+  };
+  icon: WithLabelAndAttributes<string>;
+  id: WithLabelAndAttributes<string>;
+  link: WithLabelAndAttributes<string, { rel: string; type: string; href: string }>[];
+  title: WithLabelAndAttributes<string>;
+  updated: WithLabelAndAttributes<string>;
+  rights: WithLabelAndAttributes<string>;
 }
 
-export type { Album, GetTopAlbumsResponseDto };
+export type { Album, GetTopAlbumsResponseDto, RawAlbum };
