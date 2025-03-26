@@ -5,12 +5,13 @@
 
   --text-color: #242424;
   --text-color-inverse: #FFFFFF;
-
+  --text-color-sidebar: #FFFFFF;
   --background-color: #FFFFFF;
+  --background-color-secondary: #242424;
   --background-color-inverse: #242424;
   --background-color-inverse-light: #484646;
   --background-color-accent: #f6f6f6;
-
+  --background-color-sidebar: #242424;
   --border-color: #e6e6e6;
 
   --font-family: 'Inter', sans-serif;
@@ -37,4 +38,18 @@
   --border-radius-small: 4px;
   --border-radius-medium: 8px;
   --border-radius-large: 16px;
+}
+
+.dark-mode {
+  --text-color: #FFFFFF;
+  --text-color-inverse: #242424;
+  --text-color-sidebar: #FFFFFF;
+
+  --background-color: #242424;
+  --background-color-secondary: #1a1a1a;
+  --background-color-inverse: #FFFFFF;
+  --background-color-inverse-light: #484646;
+  --background-color-accent: #f6f6f6;
+  --background-color-sidebar: #1a1a1a;
+  --border-color: rgba(230, 230, 230, 0.1);
 }

@@ -4,12 +4,12 @@
   top: 0;
   height: 100vh;
   width: 264px;
-  background-color: var(--background-color-inverse);
-  color: var(--text-color-inverse);
+  background-color: var(--background-color-sidebar);
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease;
   z-index: 100;
+  border-right: 1px solid var(--border-color);
 
   &-header {
     display: flex;
@@ -21,7 +21,7 @@
     &__app-name {
       font-weight: var(--font-weight-extra-bold);
       font-size: var(--font-size-medium);
-      color: var(--text-color-inverse);
+      color: var(--text-color-sidebar);
     }
   }
 
@@ -60,7 +60,7 @@
       &-text {
         font-size: var(--font-size-small);
         font-weight: var(--font-weight-medium);
-        color: var(--text-color-inverse);
+        color: var(--text-color-sidebar);
       }
     }
   }

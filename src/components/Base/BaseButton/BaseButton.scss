@@ -34,6 +34,7 @@
     display: inline-flex;
     align-items: center;
     color: var(--color-text-inverse);
+    font-weight: var(--font-weight-bold);
   }
 
   &__icon {
@@ -68,7 +69,6 @@
   }
 
 
-  // Tertiary button (bez tła)
   &--tertiary {
     background-color: transparent;
     color: var(--color-primary);

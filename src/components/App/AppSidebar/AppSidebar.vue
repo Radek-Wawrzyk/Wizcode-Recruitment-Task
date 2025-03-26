@@ -24,7 +24,7 @@ const menuItems = [
       <ul class="app-sidebar-nav__list">
         <li v-for="item in menuItems" :key="item.path" class="app-sidebar-nav__item">
           <router-link :to="item.path" class="app-sidebar-nav__link">
-            <BaseIcon :name="item.icon" :size="16" color="var(--text-color-inverse)" />
+            <BaseIcon :name="item.icon" :size="16" color="var(--text-color-sidebar)" />
             <span class="app-sidebar-nav__link-text">{{ item.name }}</span>
           </router-link>
         </li>
