@@ -1,0 +1,47 @@
+.app-top-navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 64px;
+  left: 264px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-large);
+  z-index: 100;
+
+  &__left {
+
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+  }
+
+  &__action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    border-radius: var(--border-radius-medium);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--background-color-accent);
+    }
+  }
+}

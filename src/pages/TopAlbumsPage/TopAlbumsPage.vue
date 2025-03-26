@@ -9,7 +9,7 @@ const { topAlbums } = useTopAlbums();
 </script>
 
 <template>
-  <div class="top-albums page">
+  <div class="top-albums">
     <div class="container">
       <header class="top-albums-header">
         <h1 class="top-albums-header__title">{{ t('topAlbums.title') }}</h1>

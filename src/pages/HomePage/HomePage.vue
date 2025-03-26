@@ -10,7 +10,7 @@ const { favoriteAlbums } = useFavoriteAlbums();
 </script>
 
 <template>
-  <div class="home-page page">
+  <div class="home-page">
     <div class="container">
       <header class="home-page-header">
         <h1 class="home-page-header__title">{{ $t('home.title') }}</h1>
