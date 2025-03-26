@@ -1,0 +1,67 @@
+.app-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 264px;
+  background-color: var(--background-color-inverse);
+  color: var(--text-color-inverse);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 100;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-medium);
+    height: 64px;
+
+    &__app-name {
+      font-weight: var(--font-weight-extra-bold);
+      font-size: var(--font-size-medium);
+      color: var(--text-color-inverse);
+    }
+  }
+
+
+  &-nav {
+    padding: var(--spacing-medium) var(--spacing-small);
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-extra-small);
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-medium);
+      text-decoration: none;
+      padding: var(--spacing-medium) var(--spacing-small);
+      background-color: transparent;
+      border-radius: var(--border-radius-medium);
+      transition: background-color 0.2s ease;
+
+      &.router-link-active {
+        background-color: var(--color-primary);
+
+        &:hover {
+          background-color: var(--color-primary-light);
+        }
+      }
+
+      &:hover {
+        background-color: var(--background-color-inverse-light);
+      }
+
+      &-text {
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-inverse);
+      }
+    }
+  }
+}

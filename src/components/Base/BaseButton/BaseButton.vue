@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { RouterLinkProps } from 'vue-router';
+import type { IconName } from '@/icons/types/icon';
 
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 
@@ -9,8 +10,8 @@ const props = withDefaults(
     type?: 'primary' | 'secondary' | 'tertiary';
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
-    leftIcon?: string;
-    rightIcon?: string;
+    leftIcon?: IconName;
+    rightIcon?: IconName;
     to?: string | RouterLinkProps['to'];
   }>(),
   {

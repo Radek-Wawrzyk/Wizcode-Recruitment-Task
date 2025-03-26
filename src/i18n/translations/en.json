@@ -9,5 +9,10 @@
   },
   "common": {
     "viewAll": "View all"
+  },
+  "sidebar": {
+    "home": "Home",
+    "topAlbums": "Top Albums",
+    "favorites": "Favorites"
   }
 }
