@@ -13,8 +13,10 @@ const props = defineProps<{
 
 const albumReleaseYear = computed(() => dayjs(props.album.releaseDate).year());
 const titleRef = ref<HTMLElement>();
+const artistRef = ref<HTMLElement>();
 
-const { isXOverflowing } = useElementOverflow(titleRef);
+const { isXOverflowing: isTitleOverflowing } = useElementOverflow(titleRef);
+const { isXOverflowing: isArtistOverflowing } = useElementOverflow(artistRef);
 const { isFavorite, addToFavorites, removeFromFavorites } = useFavoriteAlbums();
 
 const onFavoriteClick = () => {
@@ -43,13 +45,20 @@ const onFavoriteClick = () => {
     <div class="album-tile__content">
       <h3
         ref="titleRef"
-        v-tippy="{ content: isXOverflowing ? album.name : null }"
+        v-tippy="{ content: isTitleOverflowing ? album.name : null }"
         class="album-tile__title"
       >
         {{ album.name }}
       </h3>
 
-      <p class="album-tile__artist">{{ album.artistName }}</p>
+      <p
+        ref="artistRef"
+        v-tippy="{ content: isArtistOverflowing ? album.artistName : null }"
+        class="album-tile__artist"
+      >
+        {{ album.artistName }}
+      </p>
+
       <p class="album-tile__release-year">{{ albumReleaseYear }}</p>
     </div>
   </li>

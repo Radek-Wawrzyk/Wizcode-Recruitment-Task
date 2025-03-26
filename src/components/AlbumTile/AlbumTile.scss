@@ -26,7 +26,7 @@
   }
 
   &__title {
-    font-size: 14px;
+    font-size: var(--font-size-small);
     font-weight: var(--font-weight-extra-bold);
     margin-bottom: var(--spacing-extra-small);
     overflow: hidden;
@@ -35,8 +35,15 @@
     width: 100%;
   }
 
-  &__artist,
+  &__artist {
+    font-size: var(--font-size-xsmall);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
   &__release-year {
-    font-size: 12px;
+    font-size: var(--font-size-xsmall);
   }
 }
