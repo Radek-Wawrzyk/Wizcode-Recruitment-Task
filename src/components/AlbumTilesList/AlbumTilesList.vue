@@ -9,14 +9,7 @@ defineProps<{
 
 <template>
   <ul class="album-tiles-list">
-    <AlbumTile
-      v-for="album in albums"
-      :key="album.id"
-      :image="album.image"
-      :name="album.name"
-      :artist="album.artistName"
-      :release-date="album.releaseDate"
-    />
+    <AlbumTile v-for="album in albums" :key="album.id" :album="album" />
   </ul>
 </template>
 
