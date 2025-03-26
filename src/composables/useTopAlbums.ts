@@ -13,7 +13,7 @@ const useTopAlbums = () => {
   const mappedTopAlbums = (albums: RawAlbum[]) => {
     return albums.map((album) => ({
       id: album.id.attributes['im:id'],
-      name: album.title.label,
+      name: album['im:name'].label,
       url: album.link.attributes.href,
       image: album['im:image'][2].label,
       artistName: album['im:artist'].label,

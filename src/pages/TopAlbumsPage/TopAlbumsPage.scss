@@ -1,0 +1,19 @@
+.top-albums {
+  &-header {
+    margin-bottom: var(--spacing-xlarge);
+
+    &__title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-medium);
+    }
+  }
+
+  &-content {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--spacing-medium);
+    }
+  }
+}
