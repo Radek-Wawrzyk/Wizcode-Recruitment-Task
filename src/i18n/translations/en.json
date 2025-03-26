@@ -6,5 +6,8 @@
     "title": "Welcome to the App",
     "topAlbums": "Top latest albums",
     "favorites": "Your favorite albums"
+  },
+  "common": {
+    "viewAll": "View all"
   }
 }

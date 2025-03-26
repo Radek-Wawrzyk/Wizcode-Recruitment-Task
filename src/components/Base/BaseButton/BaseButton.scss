@@ -1,0 +1,91 @@
+.base-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-large);
+  font-weight: var(--font-weight-extra-bold);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+  outline: none;
+  gap: var(--spacing-small);
+  text-decoration: none;
+  outline: 2px solid transparent;
+
+  &--small {
+    height: 32px;
+    padding: 0 var(--spacing-medium);
+    font-size: var(--font-size-xsmall);
+  }
+
+  &--medium {
+    height: 36px;
+    padding: 0 var(--spacing-large);
+    font-size: var(--font-size-small);
+  }
+
+  &--large {
+    height: 42px;
+    padding: 0 var(--spacing-large);
+    font-size: var(--font-size-medium);
+  }
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-inverse);
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--left {
+      margin-right: 0.25rem;
+    }
+
+    &--right {
+      margin-left: 0.25rem;
+    }
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--text-color-inverse);
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    &:active {
+      background-color: var(--color-primary-dark);
+    }
+
+    &:focus {
+      outline-color: var(--color-primary-light);
+    }
+  }
+
+
+  // Tertiary button (bez tła)
+  &--tertiary {
+    background-color: transparent;
+    color: var(--color-primary);
+
+    &:hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: var(--color-primary-dark);
+    }
+  }
+
+  // Disabled state
+  &--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

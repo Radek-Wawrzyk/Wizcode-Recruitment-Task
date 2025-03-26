@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AlbumTilesList from '@/components/AlbumTilesList/AlbumTilesList.vue';
+import BaseButton from '@/components/Base/BaseButton/BaseButton.vue';
 
 import { useTopAlbums } from '@/composables/useTopAlbums';
 import { useFavoriteAlbums } from '@/composables/useFavoriteAlbums';
@@ -16,12 +17,19 @@ const { favoriteAlbums } = useFavoriteAlbums();
       </header>
 
       <section class="home-page-section">
-        <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
+        <header class="home-page-section__header">
+          <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
+          <BaseButton size="small" to="/top-albums">{{ $t('common.viewAll') }}</BaseButton>
+        </header>
         <AlbumTilesList :albums="topAlbums" />
       </section>
 
       <section class="home-page-section">
-        <h2 class="home-page-section__title">{{ $t('home.favorites') }}</h2>
+        <header class="home-page-section__header">
+          <h2 class="home-page-section__title">{{ $t('home.favorites') }}</h2>
+          <BaseButton size="small" to="/favorites">{{ $t('common.viewAll') }}</BaseButton>
+        </header>
+
         <AlbumTilesList :albums="favoriteAlbums" locked />
       </section>
     </div>

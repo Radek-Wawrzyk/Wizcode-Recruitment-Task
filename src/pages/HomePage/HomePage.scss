@@ -11,10 +11,17 @@
   &-section {
     margin-bottom: var(--spacing-xxlarge);
 
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-medium);
+    }
+
     &__title {
       font-size: var(--font-size-large);
       font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-medium);
+
     }
   }
 }

@@ -53,6 +53,7 @@ export default [
       'vue/attribute-hyphenation': 'off',
       'vue/no-v-html': 'off',
       'vue/v-on-event-hyphenation': 'off',
+      'vue/require-default-prop': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
