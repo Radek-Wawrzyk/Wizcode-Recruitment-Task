@@ -9,6 +9,7 @@ import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 
 const props = defineProps<{
   album: Album;
+  locked?: boolean;
 }>();
 
 const albumReleaseYear = computed(() => dayjs(props.album.releaseDate).year());
@@ -33,7 +34,7 @@ const onFavoriteClick = () => {
     <div class="album-tile__image">
       <img :src="album.image" :alt="album.name" class="album-tile__image-inner" />
 
-      <button class="album-tile__favorite-button" @click="onFavoriteClick">
+      <button v-if="!locked" class="album-tile__favorite-button" @click="onFavoriteClick">
         <BaseIcon
           :name="isFavorite(album.id) ? 'heart-filled' : 'heart'"
           :color="isFavorite(album.id) ? 'red' : 'white'"

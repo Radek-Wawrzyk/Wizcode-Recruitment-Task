@@ -3,11 +3,12 @@ import { useQuery } from '@tanstack/vue-query';
 import { QUERY_KEYS } from '@/constants/Queries';
 import { computed } from 'vue';
 import type { RawAlbum } from '@/types/Album.type';
+import { ALBUMS_LIMIT } from '@/constants/Albums';
 
-const useTopAlbums = () => {
+const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
   const { data, isLoading, error } = useQuery({
     queryKey: [QUERY_KEYS.TOP_ALBUMS],
-    queryFn: () => albumsService.getTopAlbums(),
+    queryFn: () => albumsService.getTopAlbums(limit),
   });
 
   const mappedTopAlbums = (albums: RawAlbum[]) => {

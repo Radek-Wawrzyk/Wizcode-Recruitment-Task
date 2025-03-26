@@ -1,5 +1,10 @@
 {
   "topAlbums": {
     "title": "Top Albums"
+  },
+  "home": {
+    "title": "Welcome to the App",
+    "topAlbums": "Top latest albums",
+    "favorites": "Your favorite albums"
   }
 }

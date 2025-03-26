@@ -1,0 +1,20 @@
+.home-page {
+  &-header {
+    margin-bottom: var(--spacing-xlarge);
+
+    &__title {
+      font-size: var(--font-size-xlarge);
+      font-weight: var(--font-weight-extra-bold);
+    }
+  }
+
+  &-section {
+    margin-bottom: var(--spacing-xxlarge);
+
+    &__title {
+      font-size: var(--font-size-large);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-medium);
+    }
+  }
+}

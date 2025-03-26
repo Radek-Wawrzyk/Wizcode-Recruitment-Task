@@ -4,12 +4,13 @@ import type { Album } from '@/types/Album.type';
 
 defineProps<{
   albums: Album[];
+  locked?: boolean;
 }>();
 </script>
 
 <template>
   <ul class="album-tiles-list">
-    <AlbumTile v-for="album in albums" :key="album.id" :album="album" />
+    <AlbumTile v-for="album in albums" :key="album.id" :album="album" :locked="locked" />
   </ul>
 </template>
 
