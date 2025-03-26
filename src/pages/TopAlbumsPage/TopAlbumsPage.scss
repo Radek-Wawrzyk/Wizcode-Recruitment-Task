@@ -3,17 +3,9 @@
     margin-bottom: var(--spacing-xlarge);
 
     &__title {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: var(--font-size-xlarge);
+      font-weight: 900;
       margin-bottom: var(--spacing-medium);
-    }
-  }
-
-  &-content {
-    &__list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--spacing-medium);
     }
   }
 }
