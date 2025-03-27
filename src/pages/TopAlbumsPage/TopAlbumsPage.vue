@@ -2,13 +2,15 @@
 import AlbumTilesList from '@/components/Album/AlbumTilesList/AlbumTilesList.vue';
 import AppHeader from '@/components/App/AppHeader/AppHeader.vue';
 import BaseInput from '@/components/Base/BaseInput/BaseInput.vue';
+import BaseMultiSelect from '@/components/Base/BaseMultiSelect/BaseMultiSelect.vue';
 
 import { ref, watch } from 'vue';
 import { useTopAlbums } from '@/composables/useTopAlbums';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const { filteredAlbums, updateSearch } = useTopAlbums();
+const { filteredAlbums, updateSearch, albumsCategories, selectedCategories, updateCategories } =
+  useTopAlbums();
 
 const searchQuery = ref('');
 
@@ -23,6 +25,15 @@ watch(searchQuery, (newValue: string) => {
       <app-header>
         <template #title>
           {{ t('topAlbums.title') }}
+        </template>
+
+        <template #actions>
+          <base-multi-select
+            v-model="selectedCategories"
+            :options="albumsCategories"
+            :placeholder="$t('topAlbums.categories')"
+            @update:model-value="updateCategories"
+          />
         </template>
       </app-header>
 

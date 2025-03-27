@@ -8,6 +8,7 @@ import { debounce } from 'es-toolkit';
 
 const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
   const searchQuery = ref('');
+  const selectedCategories = ref<string[]>([]);
 
   const { data, isLoading, error } = useQuery({
     queryKey: [QUERY_KEYS.TOP_ALBUMS],
@@ -34,23 +35,45 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
     }));
   };
 
+  const albumsCategories = computed(() => {
+    if (!topAlbums.value) return [];
+
+    const uniqueCategories = new Set(topAlbums.value.map((album) => album.category));
+
+    return Array.from(uniqueCategories).map((category) => ({
+      value: category.id,
+      label: category.name,
+    }));
+  });
+
   const topAlbums = computed(() => mappedTopAlbums(data.value?.feed.entry ?? []));
 
   const filteredAlbums = computed(() => {
     if (!topAlbums.value) return [];
+    let filtered = topAlbums.value;
 
     const query = searchQuery.value.toLowerCase().trim();
-    if (!query) return topAlbums.value;
+    if (query) {
+      filtered = filtered.filter((album) => {
+        const searchableFields = [album.name, album.artistName];
+        return searchableFields.some((field) => field.toLowerCase().includes(query));
+      });
+    }
 
-    return topAlbums.value.filter((album) => {
-      const searchableFields = [album.name, album.artistName];
-      return searchableFields.some((field) => field.toLowerCase().includes(query));
-    });
+    if (selectedCategories.value.length > 0) {
+      filtered = filtered.filter((album) => selectedCategories.value.includes(album.category.id));
+    }
+
+    return filtered;
   });
 
   const updateSearch = debounce((value: string) => {
     searchQuery.value = value;
   }, ALBUMS_SEARCH_DEBOUNCE);
+
+  const updateCategories = (categories: string[]) => {
+    selectedCategories.value = categories;
+  };
 
   return {
     topAlbums,
@@ -59,6 +82,9 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
     error,
     searchQuery,
     updateSearch,
+    albumsCategories,
+    selectedCategories,
+    updateCategories,
   };
 };
 

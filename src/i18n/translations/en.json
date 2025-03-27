@@ -1,7 +1,8 @@
 {
   "topAlbums": {
     "title": "Top Albums",
-    "search": "Filter top albums by a artist or album name"
+    "search": "Filter top albums by a artist or album name",
+    "categories": "Select categories"
   },
   "home": {
     "title": "Welcome to the App",

@@ -8,6 +8,7 @@ const ICON_NAMES = {
   SEARCH: 'search',
   HAMBURGER: 'hamburger',
   CLOSE: 'close',
+  CHEVRON_DOWN: 'chevron-down',
 } as const;
 
 export { ICON_NAMES };
