@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AlbumTilesList from '@/components/AlbumTilesList/AlbumTilesList.vue';
+import AlbumTilesList from '@/components/Album/AlbumTilesList/AlbumTilesList.vue';
 import AppHeader from '@/components/App/AppHeader/AppHeader.vue';
 import BaseInput from '@/components/Base/BaseInput/BaseInput.vue';
 

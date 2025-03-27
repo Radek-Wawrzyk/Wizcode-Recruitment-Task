@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AlbumTile from '@/components/AlbumTile/AlbumTile.vue';
+import AlbumTile from '@/components/Album/AlbumTile/AlbumTile.vue';
 import type { Album } from '@/types/Album.type';
 
 defineProps<{
