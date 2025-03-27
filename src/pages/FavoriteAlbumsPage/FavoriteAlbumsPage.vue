@@ -9,12 +9,14 @@ const { favoriteAlbums } = useFavoriteAlbums();
 
 <template>
   <div class="favorites-albums-page">
-    <app-header>
-      <template #title>
-        {{ $t('favoritesAlbums.title') }}
-      </template>
-    </app-header>
+    <div class="container">
+      <app-header>
+        <template #title>
+          {{ $t('favoritesAlbums.title') }}
+        </template>
+      </app-header>
 
-    <AlbumTilesList :albums="favoriteAlbums" />
+      <AlbumTilesList :albums="favoriteAlbums" />
+    </div>
   </div>
 </template>

@@ -9,3 +9,30 @@
     opacity: 0;
   }
 }
+
+.album-tiles-move,
+.album-tiles-enter-active,
+.album-tiles-leave-active {
+  transition: all 0.3s ease;
+}
+
+.album-tiles-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.album-tiles-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+  position: absolute;
+}
+
+.album-tiles-leave-active {
+  position: absolute;
+}
+
+@for $i from 0 through 100 {
+  .album-tiles-enter-active:nth-child(#{$i}) {
+    transition-delay: calc(#{$i} * 0.05s);
+  }
+}

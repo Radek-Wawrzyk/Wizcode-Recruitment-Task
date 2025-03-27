@@ -9,9 +9,9 @@ defineProps<{
 </script>
 
 <template>
-  <ul class="album-tiles-list">
+  <transition-group name="album-tiles" class="album-tiles-list" tag="ul">
     <AlbumTile v-for="album in albums" :key="album.id" :album="album" :locked="locked" />
-  </ul>
+  </transition-group>
 </template>
 
 <style lang="scss" scoped src="./AlbumTilesList.scss" />
