@@ -37,13 +37,18 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
 
   const albumsCategories = computed(() => {
     if (!topAlbums.value) return [];
+    const categoriesMap = new Map();
 
-    const uniqueCategories = new Set(topAlbums.value.map((album) => album.category));
+    topAlbums.value.forEach((album) => {
+      if (!categoriesMap.has(album.category.id)) {
+        categoriesMap.set(album.category.id, {
+          value: album.category.id,
+          label: album.category.name,
+        });
+      }
+    });
 
-    return Array.from(uniqueCategories).map((category) => ({
-      value: category.id,
-      label: category.name,
-    }));
+    return Array.from(categoriesMap.values());
   });
 
   const topAlbums = computed(() => mappedTopAlbums(data.value?.feed.entry ?? []));
