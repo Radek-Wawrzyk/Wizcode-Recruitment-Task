@@ -10,38 +10,28 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--spacing-large);
-  z-index: 100;
+  z-index: 98;
 
-  &__left {
-
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-medium);
-  }
-
-  &__right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-medium);
-  }
-
-  &__action {
+  &__button {
     background: none;
     border: none;
-    cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    width: 36px;
-    border-radius: var(--border-radius-medium);
-    transition: background-color 0.2s ease;
+    padding: var(--spacing-small);
+    cursor: pointer;
+    display: none;
+  }
 
-    &:hover {
-      background-color: var(--background-color-accent);
+}
+
+// Media
+
+@media (max-width: 768px) {
+  .app-top-navigation {
+    left: 0;
+
+    &__button {
+      display: flex;
     }
   }
 }

@@ -6,6 +6,8 @@ const ICON_NAMES = {
   SUN: 'sun',
   MOON: 'moon',
   SEARCH: 'search',
+  HAMBURGER: 'hamburger',
+  CLOSE: 'close',
 } as const;
 
 export { ICON_NAMES };

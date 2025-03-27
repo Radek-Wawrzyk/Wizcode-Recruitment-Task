@@ -4,3 +4,11 @@
   background-color: var(--background-color);
   min-height: 100vh;
 }
+
+// Media
+
+@media (max-width: 768px) {
+  .app-content {
+    margin: 0;
+  }
+}
