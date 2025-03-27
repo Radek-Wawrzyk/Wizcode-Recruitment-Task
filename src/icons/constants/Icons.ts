@@ -5,6 +5,7 @@ const ICON_NAMES = {
   MUSIC: 'music',
   SUN: 'sun',
   MOON: 'moon',
+  SEARCH: 'search',
 } as const;
 
 export { ICON_NAMES };

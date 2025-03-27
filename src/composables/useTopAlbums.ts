@@ -1,11 +1,14 @@
 import { albumsService } from '@/api/services/albums';
 import { useQuery } from '@tanstack/vue-query';
 import { QUERY_KEYS } from '@/constants/Queries';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import type { RawAlbum } from '@/types/Album.type';
-import { ALBUMS_LIMIT } from '@/constants/Albums';
+import { ALBUMS_LIMIT, ALBUMS_SEARCH_DEBOUNCE } from '@/constants/Albums';
+import { debounce } from 'es-toolkit';
 
 const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
+  const searchQuery = ref('');
+
   const { data, isLoading, error } = useQuery({
     queryKey: [QUERY_KEYS.TOP_ALBUMS],
     queryFn: () => albumsService.getTopAlbums(limit),
@@ -33,10 +36,29 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
 
   const topAlbums = computed(() => mappedTopAlbums(data.value?.feed.entry ?? []));
 
+  const filteredAlbums = computed(() => {
+    if (!topAlbums.value) return [];
+
+    const query = searchQuery.value.toLowerCase().trim();
+    if (!query) return topAlbums.value;
+
+    return topAlbums.value.filter((album) => {
+      const searchableFields = [album.name, album.artistName];
+      return searchableFields.some((field) => field.toLowerCase().includes(query));
+    });
+  });
+
+  const updateSearch = debounce((value: string) => {
+    searchQuery.value = value;
+  }, ALBUMS_SEARCH_DEBOUNCE);
+
   return {
     topAlbums,
+    filteredAlbums,
     isLoading,
     error,
+    searchQuery,
+    updateSearch,
   };
 };
 

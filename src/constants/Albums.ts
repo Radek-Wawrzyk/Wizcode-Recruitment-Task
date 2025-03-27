@@ -1,3 +1,4 @@
 const ALBUMS_LIMIT = 100 as const;
+const ALBUMS_SEARCH_DEBOUNCE = 500 as const;
 
-export { ALBUMS_LIMIT };
+export { ALBUMS_LIMIT, ALBUMS_SEARCH_DEBOUNCE };

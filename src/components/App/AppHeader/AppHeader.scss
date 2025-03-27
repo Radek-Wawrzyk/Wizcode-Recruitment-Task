@@ -1,9 +1,17 @@
 .app-header {
   margin-bottom: var(--spacing-xlarge);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xlarge);
 
   &__title {
     font-size: var(--font-size-xlarge);
     font-weight: var(--font-weight-extra-bold);
-    margin-bottom: var(--spacing-medium);
+
+  }
+
+  &__actions {
+    display: flex;
   }
 }

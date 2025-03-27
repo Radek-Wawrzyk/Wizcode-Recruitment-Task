@@ -1,20 +1,30 @@
 <script setup lang="ts">
 import { useDarkMode } from '@/composables/useDarkMode';
-import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 import { ICON_NAMES } from '@/icons/constants/Icons';
+
+import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 
 const { isDarkMode, toggleDarkMode } = useDarkMode();
 </script>
 
 <template>
   <button
-    class="app-dark-mode-switcher"
-    :aria-label="isDarkMode ? 'Przełącz na tryb jasny' : 'Przełącz na tryb ciemny'"
-    :title="isDarkMode ? 'Przełącz na tryb jasny' : 'Przełącz na tryb ciemny'"
+    v-tippy="{
+      content: isDarkMode ? $t('theme.light') : $t('theme.dark'),
+    }"
+    class="app-theme-switcher"
+    :class="{ 'app-theme-switcher--dark': isDarkMode }"
     @click="toggleDarkMode"
   >
-    <BaseIcon :name="isDarkMode ? 'sun' : 'moon'" :size="20" color="currentColor" />
+    <div class="app-theme-switcher__track"></div>
+    <div class="app-theme-switcher__thumb">
+      <BaseIcon
+        :name="isDarkMode ? ICON_NAMES.MOON : ICON_NAMES.SUN"
+        :size="14"
+        color="var(--color-text-inverse)"
+      />
+    </div>
   </button>
 </template>
 
-<style lang="scss" scoped src="./AppThemeSwitcher.scss" />
+<style lang="scss" scoped src="./AppThemeSwitcher.scss"></style>
