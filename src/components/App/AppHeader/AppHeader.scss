@@ -1,0 +1,9 @@
+.app-header {
+  margin-bottom: var(--spacing-xlarge);
+
+  &__title {
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-extra-bold);
+    margin-bottom: var(--spacing-medium);
+  }
+}

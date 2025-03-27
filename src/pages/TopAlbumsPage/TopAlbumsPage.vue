@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AlbumTilesList from '@/components/AlbumTilesList/AlbumTilesList.vue';
+import AppHeader from '@/components/App/AppHeader/AppHeader.vue';
 
 import { useTopAlbums } from '@/composables/useTopAlbums';
 import { useI18n } from 'vue-i18n';
@@ -11,9 +12,11 @@ const { topAlbums } = useTopAlbums();
 <template>
   <div class="top-albums">
     <div class="container">
-      <header class="top-albums-header">
-        <h1 class="top-albums-header__title">{{ t('topAlbums.title') }}</h1>
-      </header>
+      <app-header>
+        <template #title>
+          {{ t('topAlbums.title') }}
+        </template>
+      </app-header>
 
       <section class="top-albums-content">
         <AlbumTilesList :albums="topAlbums" />

@@ -14,5 +14,12 @@
     "home": "Home",
     "topAlbums": "Top Albums",
     "favorites": "Favorites"
+  },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+  "favoritesAlbums": {
+    "title": "Favorite Albums"
   }
 }
