@@ -8,7 +8,7 @@ import { useTopAlbums } from '@/composables/useTopAlbums';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const { topAlbums, filteredAlbums, updateSearch } = useTopAlbums();
+const { filteredAlbums, updateSearch } = useTopAlbums();
 
 const searchQuery = ref('');
 
