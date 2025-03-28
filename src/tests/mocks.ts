@@ -38,4 +38,29 @@ const mockAlbums: Album[] = [
 
 const mockAlbum: Album = mockAlbums[0];
 
-export { mockAlbum, mockAlbums };
+const mockRawAlbums = [
+  {
+    id: { attributes: { 'im:id': '1' } },
+    'im:name': { label: 'Album 1' },
+    link: { attributes: { href: 'https://example.com/1' } },
+    'im:image': [{ label: 'small.jpg' }, { label: 'medium.jpg' }, { label: 'large.jpg' }],
+    'im:artist': { label: 'Artysta 1' },
+    'im:price': { label: '9.99 zł', attributes: { currency: 'PLN' } },
+    'im:itemCount': { label: '12' },
+    'im:releaseDate': { label: '2023-01-01' },
+    category: { attributes: { 'im:id': 'rock', label: 'Rock' } },
+  },
+  {
+    id: { attributes: { 'im:id': '2' } },
+    'im:name': { label: 'Album 2' },
+    link: { attributes: { href: 'https://example.com/2' } },
+    'im:image': [{ label: 'small.jpg' }, { label: 'medium.jpg' }, { label: 'large.jpg' }],
+    'im:artist': { label: 'Artysta 2' },
+    'im:price': { label: '14.99 zł', attributes: { currency: 'PLN' } },
+    'im:itemCount': { label: '10' },
+    'im:releaseDate': { label: '2023-02-01' },
+    category: { attributes: { 'im:id': 'pop', label: 'Pop' } },
+  },
+];
+
+export { mockAlbum, mockAlbums, mockRawAlbums };
