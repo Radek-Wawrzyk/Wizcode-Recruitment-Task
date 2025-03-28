@@ -50,7 +50,11 @@ const {
 
       <section class="top-albums-content">
         <AppLoader v-if="isLoading" />
-        <AlbumTilesList v-else :albums="filteredAlbums" />
+        <AlbumTilesList
+          v-else
+          :albums="filteredAlbums"
+          :empty-text="$t('topAlbums.noAlbumsFound')"
+        />
       </section>
     </div>
   </div>

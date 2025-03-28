@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AlbumTilesList from '@/components/Album/AlbumTilesList/AlbumTilesList.vue';
 import AppHeader from '@/components/App/AppHeader/AppHeader.vue';
+import AppLoader from '@/components/App/AppLoader/AppLoader.vue';
 import BaseButton from '@/components/Base/BaseButton/BaseButton.vue';
 
 import { useTopAlbums } from '@/composables/useTopAlbums';
@@ -19,10 +20,12 @@ const { favoriteAlbums } = useFavoriteAlbums();
         </template>
       </app-header>
 
-      <section class="home-page-section">
+      <section class="home-page-section" data-test="favorites-albums-section">
         <header class="home-page-section__header">
           <h2 class="home-page-section__title">{{ $t('home.favorites') }}</h2>
-          <base-button size="small" to="/favorites">{{ $t('common.viewAll') }}</base-button>
+          <base-button size="small" to="/favorites" data-test="favorites-albums-section-button">{{
+            $t('common.viewAll')
+          }}</base-button>
         </header>
 
         <album-tiles-list
@@ -32,7 +35,7 @@ const { favoriteAlbums } = useFavoriteAlbums();
         />
       </section>
 
-      <section class="home-page-section">
+      <section class="home-page-section" data-test="top-albums-section">
         <header class="home-page-section__header">
           <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
           <base-button size="small" to="/top-albums">{{ $t('common.viewAll') }}</base-button>
