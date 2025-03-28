@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { useElementOverflow } from '@/composables/useElementOverflow';
 import { useFavoriteAlbums } from '@/composables/useFavoriteAlbums';
 import type { Album } from '@/types/Album.type';
-import { ICON_NAMES } from '@/icons/constants/Icons';
+import { ICON } from '@/icons';
 
 import dayjs from 'dayjs';
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
@@ -49,7 +49,7 @@ const onFavoriteClick = () => {
         v-tippy="{ content: $t('album.tracks', { count: album.tracksNumber }) }"
         class="album-tile__tracks"
       >
-        <base-icon :name="ICON_NAMES.DISK" :size="12" color="var(--text-color-white)" />
+        <base-icon :name="ICON.DISK" :size="12" color="var(--text-color-white)" />
         <span class="album-tile__tracks-number">{{ album.tracksNumber }}</span>
       </div>
     </div>

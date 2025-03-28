@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { ROUTES } from '@/constants/Routing';
-import { ICON_NAMES } from '@/icons/constants/Icons';
+import { ICON } from '@/icons';
 import { useLayout } from '@/composables/useLayout';
 
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
@@ -9,9 +9,9 @@ import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 const { t } = useI18n();
 
 const menuItems = [
-  { name: t('sidebar.home'), path: ROUTES.HOME.path, icon: ICON_NAMES.HOME },
-  { name: t('sidebar.topAlbums'), path: ROUTES.TOP_ALBUMS.path, icon: ICON_NAMES.MUSIC },
-  { name: t('sidebar.favorites'), path: ROUTES.FAVORITES.path, icon: ICON_NAMES.HEART },
+  { name: t('sidebar.home'), path: ROUTES.HOME.path, icon: ICON.HOME },
+  { name: t('sidebar.topAlbums'), path: ROUTES.TOP_ALBUMS.path, icon: ICON.MUSIC },
+  { name: t('sidebar.favorites'), path: ROUTES.FAVORITES.path, icon: ICON.HEART },
 ];
 
 const { isSidebarOpen, toggleSidebar } = useLayout();
@@ -23,7 +23,7 @@ const { isSidebarOpen, toggleSidebar } = useLayout();
       <h3 class="app-sidebar-header__app-name">Find my album</h3>
 
       <button class="app-sidebar-header__button" @click="toggleSidebar">
-        <BaseIcon :name="ICON_NAMES.CLOSE" :size="16" color="var(--text-color-sidebar)" />
+        <BaseIcon :name="ICON.CLOSE" :size="16" color="var(--text-color-sidebar)" />
       </button>
     </header>
 

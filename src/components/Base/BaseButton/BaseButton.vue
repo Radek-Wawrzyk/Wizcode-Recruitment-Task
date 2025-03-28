@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { RouterLinkProps } from 'vue-router';
-import type { IconName } from '@/icons/types/icon';
+import type { IconName } from '@/icons';
 
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDarkMode } from '@/composables/useDarkMode';
-import { ICON_NAMES } from '@/icons/constants/Icons';
+import { ICON } from '@/icons';
 
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 
@@ -19,7 +19,7 @@ const { isDarkMode, toggleDarkMode } = useDarkMode();
     <div class="app-theme-switcher__track"></div>
     <div class="app-theme-switcher__thumb">
       <base-icon
-        :name="isDarkMode ? ICON_NAMES.MOON : ICON_NAMES.SUN"
+        :name="isDarkMode ? ICON.MOON : ICON.SUN"
         :size="14"
         color="var(--color-text-inverse)"
       />

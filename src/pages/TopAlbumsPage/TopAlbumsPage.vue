@@ -30,7 +30,7 @@ const {
 
         <template #actions>
           <base-multi-select
-            v-model="selectedCategories"
+            :model-value="selectedCategories"
             :options="albumsCategories"
             :placeholder="$t('topAlbums.categories')"
             class="top-albums-multi-select"

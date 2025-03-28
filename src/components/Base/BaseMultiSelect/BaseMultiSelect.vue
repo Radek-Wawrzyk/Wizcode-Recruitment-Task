@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue';
-import { ICON_NAMES } from '@/icons/constants/Icons';
+import { ICON } from '@/icons';
 
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
 
@@ -93,7 +93,7 @@ onUnmounted(() => {
         </span>
 
         <BaseIcon
-          :name="ICON_NAMES.CHEVRON_DOWN"
+          :name="ICON.CHEVRON_DOWN"
           class="base-multi-select__arrow"
           color="var(--text-color)"
           :class="{ 'base-multi-select__arrow--open': isOpen }"

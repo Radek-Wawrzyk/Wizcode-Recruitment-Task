@@ -1,4 +1,18 @@
-import type { IconName } from '@/icons/types/icon';
+const ICON = {
+  DISK: 'disk',
+  HEART: 'heart',
+  HEART_FILLED: 'heart-filled',
+  HOME: 'home',
+  MUSIC: 'music',
+  SUN: 'sun',
+  MOON: 'moon',
+  SEARCH: 'search',
+  HAMBURGER: 'hamburger',
+  CLOSE: 'close',
+  CHEVRON_DOWN: 'chevron-down',
+} as const;
+
+type IconName = (typeof ICON)[keyof typeof ICON];
 
 const iconsCollection: Record<IconName, string> = {
   disk: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 32a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm-96-32a96 96 0 1 0 192 0 96 96 0 1 0 -192 0zM96 240c0-35 17.5-71.1 45.2-98.8S205 96 240 96c8.8 0 16-7.2 16-16s-7.2-16-16-16c-45.4 0-89.2 22.3-121.5 54.5S64 194.6 64 240c0 8.8 7.2 16 16 16s16-7.2 16-16z"/></svg>`,
@@ -14,4 +28,4 @@ const iconsCollection: Record<IconName, string> = {
   music: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7l0 72 0 264c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L448 147 192 223.8 192 432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6L128 200l0-72c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>`,
 };
 
-export { iconsCollection };
+export { iconsCollection, type IconName, ICON };
