@@ -4,6 +4,8 @@
 
 This documentation describes a web application created in response to a task to develop a tool for browsing the top 100 albums from the iTunes API. The application was built using TypeScript and Vue, as required by the specifications.
 
+[Live URL](https://wizcode-recruitment-task.netlify.app)
+
 ## Technologies Used
 
 - **Framework**: Vue 3
@@ -186,3 +188,10 @@ Potential improvements:
 - Integration with music playback API
 - Adding a detailed album view
 - Expanding the category and filtering system
+
+## Summary
+In this project, my primary focus was on achieving an attractive and clear UI and UX. I concentrated on creating pleasant animations and a clean interface. Additionally, I aimed to develop an application that is easy to maintain and further develop. I strived to write the best possible code and utilize interesting technologies.
+
+Regarding testing, I chose not to write tests for the App components as they are relatively simple. I hope that the person reading and analyzing this code will see my thought process and working approach through the implementation details and architecture choices.
+
+The project demonstrates not only my technical skills but also my attention to detail and commitment to creating a high-quality user experience with maintainable code.
