@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AlbumTilesList from '@/components/Album/AlbumTilesList/AlbumTilesList.vue';
 import AppHeader from '@/components/App/AppHeader/AppHeader.vue';
+import AppLoader from '@/components/App/AppLoader/AppLoader.vue';
 import BaseInput from '@/components/Base/BaseInput/BaseInput.vue';
 import BaseMultiSelect from '@/components/Base/BaseMultiSelect/BaseMultiSelect.vue';
 
@@ -15,6 +16,7 @@ const {
   albumsCategories,
   selectedCategories,
   updateCategories,
+  isLoading,
 } = useTopAlbums();
 </script>
 
@@ -47,7 +49,8 @@ const {
       </section>
 
       <section class="top-albums-content">
-        <album-tiles-list :albums="filteredAlbums" />
+        <AppLoader v-if="isLoading" />
+        <AlbumTilesList v-else :albums="filteredAlbums" />
       </section>
     </div>
   </div>

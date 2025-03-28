@@ -11,7 +11,7 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
   const selectedCategories = ref<string[]>([]);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: [QUERY_KEYS.TOP_ALBUMS],
+    queryKey: [`${QUERY_KEYS.TOP_ALBUMS}-${limit}`],
     queryFn: () => albumsService.getTopAlbums(limit),
   });
 

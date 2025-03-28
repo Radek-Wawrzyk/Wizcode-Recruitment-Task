@@ -6,7 +6,7 @@ import BaseButton from '@/components/Base/BaseButton/BaseButton.vue';
 import { useTopAlbums } from '@/composables/useTopAlbums';
 import { useFavoriteAlbums } from '@/composables/useFavoriteAlbums';
 
-const { topAlbums } = useTopAlbums(10);
+const { topAlbums, isLoading } = useTopAlbums(10);
 const { favoriteAlbums } = useFavoriteAlbums();
 </script>
 
@@ -21,14 +21,6 @@ const { favoriteAlbums } = useFavoriteAlbums();
 
       <section class="home-page-section">
         <header class="home-page-section__header">
-          <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
-          <base-button size="small" to="/top-albums">{{ $t('common.viewAll') }}</base-button>
-        </header>
-        <album-tiles-list :albums="topAlbums" />
-      </section>
-
-      <section class="home-page-section">
-        <header class="home-page-section__header">
           <h2 class="home-page-section__title">{{ $t('home.favorites') }}</h2>
           <base-button size="small" to="/favorites">{{ $t('common.viewAll') }}</base-button>
         </header>
@@ -38,6 +30,16 @@ const { favoriteAlbums } = useFavoriteAlbums();
           locked
           :empty-text="$t('favoritesAlbums.empty')"
         />
+      </section>
+
+      <section class="home-page-section">
+        <header class="home-page-section__header">
+          <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
+          <base-button size="small" to="/top-albums">{{ $t('common.viewAll') }}</base-button>
+        </header>
+
+        <AppLoader v-if="isLoading" />
+        <AlbumTilesList v-else :albums="topAlbums" />
       </section>
     </div>
   </div>
