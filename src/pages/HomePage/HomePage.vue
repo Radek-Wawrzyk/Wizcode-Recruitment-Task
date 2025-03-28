@@ -33,7 +33,11 @@ const { favoriteAlbums } = useFavoriteAlbums();
           <base-button size="small" to="/favorites">{{ $t('common.viewAll') }}</base-button>
         </header>
 
-        <album-tiles-list :albums="favoriteAlbums" locked />
+        <album-tiles-list
+          :albums="favoriteAlbums"
+          locked
+          :empty-text="$t('favoritesAlbums.empty')"
+        />
       </section>
     </div>
   </div>

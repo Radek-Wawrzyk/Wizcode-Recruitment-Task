@@ -16,7 +16,7 @@ const { favoriteAlbums } = useFavoriteAlbums();
         </template>
       </app-header>
 
-      <album-tiles-list :albums="favoriteAlbums" />
+      <album-tiles-list :albums="favoriteAlbums" :empty-text="$t('favoritesAlbums.empty')" />
     </div>
   </div>
 </template>

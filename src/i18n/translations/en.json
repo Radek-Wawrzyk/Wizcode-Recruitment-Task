@@ -22,6 +22,10 @@
     "dark": "Switch to dark mode"
   },
   "favoritesAlbums": {
-    "title": "Favorite Albums"
+    "title": "Favorite Albums",
+    "empty": "No favorite albums yet"
+  },
+  "album": {
+    "tracks": "{count} tracks"
   }
 }
