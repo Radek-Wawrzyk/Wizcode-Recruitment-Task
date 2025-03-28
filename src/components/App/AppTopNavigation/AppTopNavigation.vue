@@ -12,7 +12,7 @@ const { toggleSidebar } = useLayout();
   <header class="app-top-navigation">
     <div class="app-top-navigation__left">
       <button class="app-top-navigation__button" @click="toggleSidebar">
-        <BaseIcon :name="ICON_NAMES.HAMBURGER" color="var(--text-color)" :size="18" />
+        <base-icon :name="ICON_NAMES.HAMBURGER" color="var(--text-color)" :size="18" />
       </button>
     </div>
 

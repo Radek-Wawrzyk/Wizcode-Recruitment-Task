@@ -4,4 +4,18 @@
   &-search {
     margin-bottom: var(--spacing-xlarge);
   }
+
+  &-multi-select {
+    width: 240px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .top-albums {
+    &-multi-select {
+      width: 100%;
+      margin-top: var(--spacing-medium);
+    }
+  }
 }

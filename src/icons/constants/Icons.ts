@@ -1,4 +1,5 @@
 const ICON_NAMES = {
+  DISK: 'disk',
   HEART: 'heart',
   HEART_FILLED: 'heart-filled',
   HOME: 'home',

@@ -22,18 +22,18 @@ const { favoriteAlbums } = useFavoriteAlbums();
       <section class="home-page-section">
         <header class="home-page-section__header">
           <h2 class="home-page-section__title">{{ $t('home.topAlbums') }}</h2>
-          <BaseButton size="small" to="/top-albums">{{ $t('common.viewAll') }}</BaseButton>
+          <base-button size="small" to="/top-albums">{{ $t('common.viewAll') }}</base-button>
         </header>
-        <AlbumTilesList :albums="topAlbums" />
+        <album-tiles-list :albums="topAlbums" />
       </section>
 
       <section class="home-page-section">
         <header class="home-page-section__header">
           <h2 class="home-page-section__title">{{ $t('home.favorites') }}</h2>
-          <BaseButton size="small" to="/favorites">{{ $t('common.viewAll') }}</BaseButton>
+          <base-button size="small" to="/favorites">{{ $t('common.viewAll') }}</base-button>
         </header>
 
-        <AlbumTilesList :albums="favoriteAlbums" locked />
+        <album-tiles-list :albums="favoriteAlbums" locked />
       </section>
     </div>
   </div>

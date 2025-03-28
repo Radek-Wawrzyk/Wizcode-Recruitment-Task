@@ -112,16 +112,6 @@
     }
   }
 
-  &--error {
-    .base-multi-select__selected {
-      border-color: var(--color-error);
-
-      &:focus {
-        box-shadow: 0 0 0 3px rgba(var(--color-error-rgb), 0.1);
-      }
-    }
-  }
-
   &__error {
     font-size: var(--font-size-small);
     color: var(--color-error);

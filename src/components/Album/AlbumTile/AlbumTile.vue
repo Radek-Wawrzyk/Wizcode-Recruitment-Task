@@ -3,6 +3,7 @@ import { computed, ref } from 'vue';
 import { useElementOverflow } from '@/composables/useElementOverflow';
 import { useFavoriteAlbums } from '@/composables/useFavoriteAlbums';
 import type { Album } from '@/types/Album.type';
+import { ICON_NAMES } from '@/icons/constants/Icons';
 
 import dayjs from 'dayjs';
 import BaseIcon from '@/components/Base/BaseIcon/BaseIcon.vue';
@@ -34,13 +35,20 @@ const onFavoriteClick = () => {
     <div class="album-tile__image">
       <img :src="album.image" :alt="album.name" class="album-tile__image-inner" />
 
+      <p class="album-tile__price">{{ album.price.amount }} {{ album.price.currency }}</p>
+
       <button v-if="!locked" class="album-tile__favorite-button" @click="onFavoriteClick">
-        <BaseIcon
+        <base-icon
           :name="isFavorite(album.id) ? 'heart-filled' : 'heart'"
           :color="isFavorite(album.id) ? 'red' : 'white'"
           :size="24"
         />
       </button>
+
+      <div class="album-tile__tracks">
+        <base-icon :name="ICON_NAMES.DISK" :size="12" color="var(--text-color-white)" />
+        <span class="album-tile__tracks-number">{{ album.tracksNumber }}</span>
+      </div>
     </div>
 
     <div class="album-tile__content">

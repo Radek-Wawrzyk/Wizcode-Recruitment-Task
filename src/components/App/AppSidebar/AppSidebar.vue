@@ -30,8 +30,8 @@ const { isSidebarOpen, toggleSidebar } = useLayout();
     <nav class="app-sidebar-nav">
       <ul class="app-sidebar-nav__list">
         <li v-for="item in menuItems" :key="item.path" class="app-sidebar-nav__item">
-          <router-link :to="item.path" class="app-sidebar-nav__link">
-            <BaseIcon :name="item.icon" :size="16" color="var(--text-color-sidebar)" />
+          <router-link :to="item.path" class="app-sidebar-nav__link" @click="toggleSidebar">
+            <base-icon :name="item.icon" :size="16" color="var(--text-color-sidebar)" />
             <span class="app-sidebar-nav__link-text">{{ item.name }}</span>
           </router-link>
         </li>

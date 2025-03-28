@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/components/App/AppLayout/AppLayout.vue';
 import AppContent from '@/components/App/AppContent/AppContent.vue';
-
-import { useDarkMode } from '@/composables/useDarkMode';
-
-useDarkMode();
 </script>
 
 <template>

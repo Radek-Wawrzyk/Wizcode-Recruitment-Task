@@ -16,7 +16,7 @@ const { favoriteAlbums } = useFavoriteAlbums();
         </template>
       </app-header>
 
-      <AlbumTilesList :albums="favoriteAlbums" />
+      <album-tiles-list :albums="favoriteAlbums" />
     </div>
   </div>
 </template>

@@ -15,3 +15,14 @@
     display: flex;
   }
 }
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+
+    &__actions,
+    &__title {
+      width: 100%;
+    }
+  }
+}

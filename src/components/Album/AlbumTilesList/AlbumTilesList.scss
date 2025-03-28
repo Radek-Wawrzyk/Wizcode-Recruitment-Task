@@ -3,3 +3,10 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--spacing-large) var(--spacing-medium);
 }
+
+@media (max-width: 576px) {
+  .album-tiles-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+

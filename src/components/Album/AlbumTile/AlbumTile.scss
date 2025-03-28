@@ -47,4 +47,33 @@
   &__release-year {
     font-size: var(--font-size-xsmall);
   }
+
+  &__price {
+    font-size: var(--font-size-xsmall);
+    font-weight: var(--font-weight-bold);
+    position: absolute;
+    top: var(--spacing-small);
+    left: var(--spacing-small);
+    background-color: var(--color-primary);
+    padding: var(--spacing-extra-small);
+    border-radius: var(--border-radius-medium);
+    color: var(--text-color-white);
+  }
+
+  &__tracks {
+    position: absolute;
+    bottom: var(--spacing-small);
+    left: var(--spacing-small);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    color: var(--text-color-white);
+
+    &-number {
+      font-size: var(--font-size-xsmall);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-color-white);
+      line-height: 1;
+    }
+  }
 }

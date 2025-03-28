@@ -5,8 +5,8 @@ import AppTopNavigation from '@/components/App/AppTopNavigation/AppTopNavigation
 
 <template>
   <div class="app-layout">
-    <AppSidebar />
-    <AppTopNavigation />
+    <app-sidebar />
+    <app-top-navigation />
 
     <slot></slot>
   </div>

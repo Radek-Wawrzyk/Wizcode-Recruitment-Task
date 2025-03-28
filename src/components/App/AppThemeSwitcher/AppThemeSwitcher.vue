@@ -18,7 +18,7 @@ const { isDarkMode, toggleDarkMode } = useDarkMode();
   >
     <div class="app-theme-switcher__track"></div>
     <div class="app-theme-switcher__thumb">
-      <BaseIcon
+      <base-icon
         :name="isDarkMode ? ICON_NAMES.MOON : ICON_NAMES.SUN"
         :size="14"
         color="var(--color-text-inverse)"
