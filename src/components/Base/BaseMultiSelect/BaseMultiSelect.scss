@@ -84,11 +84,11 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--background-color-accent);
+      color: var(--color-primary);
     }
 
     &--selected {
-      background-color: var(--background-color-accent);
+      background-color: var(--background-color-light);
       color: var(--color-primary);
       font-weight: var(--font-weight-bold);
     }
