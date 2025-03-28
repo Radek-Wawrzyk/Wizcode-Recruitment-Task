@@ -7,7 +7,7 @@ import AlbumTile from './AlbumTile.vue';
 
 vi.mock('@/composables/useElementOverflow', () => ({
   useElementOverflow: () => ({
-    isXOverflowing: vi.fn().mockReturnValue(false),
+    isXOverflowing: false,
   }),
 }));
 
@@ -24,7 +24,7 @@ vi.mock('@/composables/useImageLazyLoad', () => ({
   }),
 }));
 
-const mockIsFavorite = vi.fn().mockImplementation((id) => id === '123');
+const mockIsFavorite = vi.fn();
 const mockAddToFavorites = vi.fn();
 const mockRemoveFromFavorites = vi.fn();
 
@@ -33,12 +33,6 @@ vi.mock('@/composables/useFavoriteAlbums', () => ({
     isFavorite: mockIsFavorite,
     addToFavorites: mockAddToFavorites,
     removeFromFavorites: mockRemoveFromFavorites,
-  }),
-}));
-
-vi.mock('dayjs', () => ({
-  default: () => ({
-    year: () => 2023,
   }),
 }));
 
@@ -75,11 +69,11 @@ describe('AlbumTile', () => {
     vi.clearAllMocks();
     mockIsLoaded.mockReturnValue(true);
     mockIsError.mockReturnValue(false);
-
+    mockIsFavorite.mockReturnValue(false);
     wrapper = createWrapper();
   });
 
-  it('Renders AlbumTile component correctly', () => {
+  it('renders the AlbumTile component correctly', () => {
     expect(wrapper.find('.album-tile').exists()).toBe(true);
     expect(wrapper.find('.album-tile__title').text()).toBe(mockAlbum.name);
     expect(wrapper.find('.album-tile__artist').text()).toBe(mockAlbum.artistName);
@@ -89,26 +83,38 @@ describe('AlbumTile', () => {
     );
   });
 
-  it('Renders heart icon for favorite albums', () => {
+  it('renders the heart icon for favorite albums', () => {
     const favoriteIcon = wrapper.find('.album-tile__favorite-button .base-icon-stub');
     expect(favoriteIcon.attributes('data-name')).toBe(ICON.HEART);
     expect(mockIsFavorite).toHaveBeenCalledWith(mockAlbum.id);
   });
 
-  it('Does not render favorite button when album is locked', () => {
+  it('does not render the favorite button when the album is locked', () => {
     const lockedWrapper = createWrapper({ locked: true });
     expect(lockedWrapper.find('.album-tile__favorite-button').exists()).toBe(false);
   });
 
-  it('Calls removeFromFavorites when favorite album is clicked', async () => {
-    const button = wrapper.find('.album-tile__favorite-button');
+  it('calls removeFromFavorites when the favorite album is clicked', async () => {
+    mockIsFavorite.mockReturnValue(true);
+
+    const favoriteWrapper = createWrapper();
+
+    const button = favoriteWrapper.find('.album-tile__favorite-button');
     await button.trigger('click');
 
     expect(mockRemoveFromFavorites).toHaveBeenCalledWith(mockAlbum.id);
     expect(mockAddToFavorites).not.toHaveBeenCalled();
   });
 
-  it('Renders placeholder during image loading', () => {
+  it('calls addToFavorites when the non-favorite album is clicked', async () => {
+    const button = wrapper.find('.album-tile__favorite-button');
+    await button.trigger('click');
+
+    expect(mockAddToFavorites).toHaveBeenCalledWith(mockAlbum);
+    expect(mockRemoveFromFavorites).not.toHaveBeenCalled();
+  });
+
+  it('renders the image placeholder during image loading', () => {
     mockIsLoaded.mockReturnValueOnce(false);
     const loadingWrapper = createWrapper();
 
@@ -119,7 +125,7 @@ describe('AlbumTile', () => {
     expect(placeholderIcon.attributes('data-color')).toBe('var(--border-color)');
   });
 
-  it('Renders error message when image cannot be loaded', () => {
+  it('renders the error message when the image cannot be loaded', () => {
     mockIsLoaded.mockReturnValueOnce(false);
     mockIsError.mockReturnValueOnce(true);
     const errorWrapper = createWrapper();
@@ -131,19 +137,19 @@ describe('AlbumTile', () => {
     expect(errorIcon.attributes('data-color')).toBe('var(--color-error)');
   });
 
-  it('Displays tracks number', () => {
+  it('displays the number of tracks', () => {
     const tracksNumber = wrapper.find('.album-tile__tracks-number');
     expect(tracksNumber.text()).toBe(mockAlbum.tracksNumber);
   });
 
-  it('Correctly sets image reference to lazy loading', () => {
+  it('correctly sets the image reference for lazy loading', () => {
     const image = wrapper.find('.album-tile__image-inner');
 
     expect(image.attributes('data-src')).toBe(mockAlbum.image);
     expect(image.classes()).toContain('album-tile__image-inner--visible');
   });
 
-  it('Correctly displays album price', () => {
+  it('correctly displays the album price', () => {
     const price = wrapper.find('.album-tile__price');
     expect(price.text()).toBe(`${mockAlbum.price.amount} ${mockAlbum.price.currency}`);
   });
