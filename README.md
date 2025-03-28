@@ -6,7 +6,6 @@ This documentation describes a web application created in response to a task to 
 
 [Live URL](https://wizcode-recruitment-task.netlify.app)
 
-
 ## Project Setup
 
 ```sh
@@ -168,8 +167,10 @@ I ensured accessibility through:
 - Keyboard navigation
 
 ## Testing Approach
+A comprehensive testing approach was applied to the project
 
-A comprehensive testing approach was applied to the project:
+![image](https://github.com/user-attachments/assets/9259bf89-3a64-47be-8d90-3a0a2c8e73bc)
+
 
 ### Unit Tests (Vitest)
 
