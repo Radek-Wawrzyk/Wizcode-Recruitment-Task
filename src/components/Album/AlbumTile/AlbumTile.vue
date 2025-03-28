@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue';
 import { useElementOverflow } from '@/composables/useElementOverflow';
 import { useFavoriteAlbums } from '@/composables/useFavoriteAlbums';
+import { useImageLazyLoad } from '@/composables/useImageLazyLoad';
 import type { Album } from '@/types/Album.type';
 import { ICON } from '@/icons';
 
@@ -20,6 +21,7 @@ const artistRef = ref<HTMLElement>();
 const { isXOverflowing: isTitleOverflowing } = useElementOverflow(titleRef);
 const { isXOverflowing: isArtistOverflowing } = useElementOverflow(artistRef);
 const { isFavorite, addToFavorites, removeFromFavorites } = useFavoriteAlbums();
+const { imageRef, isLoaded, isError } = useImageLazyLoad();
 
 const onFavoriteClick = () => {
   if (isFavorite(props.album.id)) {
@@ -33,7 +35,21 @@ const onFavoriteClick = () => {
 <template>
   <li class="album-tile">
     <div class="album-tile__image">
-      <img :src="album.image" :alt="album.name" class="album-tile__image-inner" />
+      <div v-if="!isLoaded && !isError" class="album-tile__image-placeholder">
+        <BaseIcon :name="ICON.MUSIC" :size="48" color="var(--border-color)" />
+      </div>
+
+      <img
+        ref="imageRef"
+        :data-src="album.image"
+        :alt="album.name"
+        class="album-tile__image-inner"
+        :class="{ 'album-tile__image-inner--visible': isLoaded }"
+      />
+
+      <div v-if="isError" class="album-tile__image-error">
+        <BaseIcon :name="ICON.MUSIC" :size="48" color="var(--color-error)" />
+      </div>
 
       <p class="album-tile__price">{{ album.price.amount }} {{ album.price.currency }}</p>
 
