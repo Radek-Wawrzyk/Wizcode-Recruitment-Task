@@ -1,5 +1,31 @@
 {
   "topAlbums": {
-    "title": "Topowe Albumy"
+    "title": "Top Albums",
+    "search": "Filtruj top albumy po nazwie artysty lub albumie",
+    "categories": "Wybierz kategorie"
+  },
+  "home": {
+    "title": "Witaj w aplikacji",
+    "topAlbums": "Najnowsze albumy",
+    "favorites": "Twoje ulubione albumy"
+  },
+  "common": {
+    "viewAll": "Pokaż wszystkie"
+  },
+  "sidebar": {
+    "home": "Strona główna",
+    "topAlbums": "Top Albumy",
+    "favorites": "Ulubione"
+  },
+  "theme": {
+    "light": "Przełącz na tryb jasny",
+    "dark": "Przełącz na tryb ciemny"
+  },
+  "favoritesAlbums": {
+    "title": "Ulubione Albumy",
+    "empty": "Nie masz jeszcze ulubionych albumów"
+  },
+  "album": {
+    "tracks": "{count} utwory"
   }
 }

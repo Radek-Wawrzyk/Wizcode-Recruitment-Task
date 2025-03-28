@@ -4,7 +4,7 @@ import { QUERY_KEYS } from '@/constants/Queries';
 import { computed, ref } from 'vue';
 import type { RawAlbum } from '@/types/Album.type';
 import { ALBUMS_LIMIT, ALBUMS_SEARCH_DEBOUNCE } from '@/constants/Albums';
-import { debounce } from 'es-toolkit';
+import { debounce, cloneDeep } from 'es-toolkit';
 
 const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
   const searchQuery = ref('');
@@ -55,7 +55,7 @@ const useTopAlbums = (limit: number = ALBUMS_LIMIT) => {
 
   const filteredAlbums = computed(() => {
     if (!topAlbums.value) return [];
-    let filtered = topAlbums.value;
+    let filtered = cloneDeep(topAlbums.value);
 
     const query = searchQuery.value.toLowerCase().trim();
     if (query) {

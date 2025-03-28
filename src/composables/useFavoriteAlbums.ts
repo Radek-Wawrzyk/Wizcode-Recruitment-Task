@@ -11,6 +11,7 @@ const useFavoriteAlbums = () => {
       try {
         favoriteAlbums.value = JSON.parse(storedFavorites);
       } catch (error) {
+        // INFO: Normally I would add some handling like toast or something else
         console.error('Error reading favorite albums:', error);
       }
     }
